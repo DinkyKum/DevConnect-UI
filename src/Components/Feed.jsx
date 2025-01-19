@@ -22,11 +22,12 @@ const Feed = () => {
   }
   }
 
-   useEffect(() => {
-    handleFeed()
-    }, []);
-   
+   useEffect(() =>{ 
+    handleFeed()}, []);
 
+    if(!feed) return;
+   
+  if(feed.length<=0) return(<h1> No feed Available</h1>)
   return (
     (feed) &&
     (<div className="m-2 justify-center flex">
