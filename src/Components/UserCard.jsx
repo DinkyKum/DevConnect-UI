@@ -3,10 +3,10 @@ import React from 'react'
 
 const UserCard = ({user}) => {
   return (
-    <div className="card bg-base-300 w-96 shadow-xl">
-  <figure className="mt-5">
+    <div className="card bg-base-300 w-96 h-[500px] shadow-xl mt- 20">
+  <figure className="m-4">
     <img
-      src={user.phototUrl}
+      src={user.photoUrl}
       alt="UserImage" />
   </figure>
   <div className="card-body">
