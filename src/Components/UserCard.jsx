@@ -22,8 +22,8 @@ const UserCard = ({user}) => {
   }
 
   return (
-    <div className="card bg-base-300 w-96 h-[500px] shadow-xl mt- 20">
-  <figure className="m-4">
+    <div className="card bg-base-300 w-96 shadow-xl">
+  <figure className="m-3">
     <img
       src={user.photoUrl}
       alt="UserImage" />
@@ -31,7 +31,8 @@ const UserCard = ({user}) => {
   <div className="card-body">
    <h2 className="card-title justify-center">{user.firstName+ " " + user.lastName}</h2>
 
-    <p className="justify-center flex">{user.about}</p>
+    <p className="justify-center mb-4 text-center flex">{user.about}</p>
+  
     <div className="card-actions justify-center">
       <button className="btn btn-secondary" onClick={()=>sendRequest("interested", user._id)}>Interested</button>
       <button className="btn btn-primary" onClick={()=>sendRequest("ignored", user._id)}>Ignore</button>

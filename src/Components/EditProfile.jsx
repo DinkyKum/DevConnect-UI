@@ -20,6 +20,7 @@ const EditProfile = ({user}) => {
       const editProfile=async()=>{
         try{
           const res= await axios.put(BASE_URL + "/profile/edit",{firstName, lastName, gender, photoUrl, about}, {withCredentials: true})
+          
           dispatch(addUser(res.data));
           console.log("Successful")
           setShowToast(true);
@@ -34,7 +35,7 @@ const EditProfile = ({user}) => {
       }
     
   return  (
-    <div>
+    <div className="flex items-start justify-center">
       <div className='justify-center flex items-center'>
     <div className="card bg-base-300 w-96 shadow-xl m-4">
   <div className="card-body">
@@ -64,7 +65,9 @@ const EditProfile = ({user}) => {
   <div className="label mt-4">
     <span className="label-text">About</span>
   </div>
-  <input type="text" value={about} onChange={(e)=> setAbout(e.target.value)} placeholder="Type here" className="input input-bordered w-full max-w-xs" />
+  {/* <input type="text" value={about} onChange={(e)=> setAbout(e.target.value)} placeholder="Type here" className="input input-bordered w-full max-w-xs" /> */}
+
+  <textarea className="textarea textarea-bordered" type="text" value={about} onChange={(e)=> setAbout(e.target.value)} placeholder="Type here"> </textarea>
 
 </label>
     </div>

@@ -36,7 +36,7 @@ const Requests = () => {
         }
     }
 
-    useEffect(()=> fetchRequests, []);
+    useEffect(()=> {fetchRequests()}, []);
 
     if(!requests) return;
     if(requests.length===0)  return(<h1> No Requests</h1>);
@@ -48,12 +48,12 @@ const Requests = () => {
            {requests.map((request)=>{
                 const {_id, firstName, lastName, gender, about, photoUrl}=request.fromUserId;
                 return(
-                    <div className="flex items-center justify-between w-1/2 bg-base-300 m-2 gap-3">
+                    <div key={_id} className="flex justify-between w-2/3 bg-base-300 m-2 gap-5 py-3 rounded-lg items-center">
                         <div className="flex items-center">
-                        <div>
+                        <div className="mr-3">
                             <img src={photoUrl} alt="Photo" className="w-20 h-20 rounded-full m-4"/>
                         </div>
-                        <div>
+                        <div className="ml-3">
                      <p className='font-bold text-lg'>{firstName+ " "+ lastName}</p>
                      <p>Gender: {gender}</p>
                      <p>{about}</p>
@@ -61,8 +61,10 @@ const Requests = () => {
                         </div>
                        
                         <div>
-                        <button className="btn btn-active btn-primary mx-3" onClick={()=>reviewRequest("rejected", request._id )}>Reject</button>
-                        <button className="btn btn-active btn-secondary mx-3" onClick={()=>reviewRequest("accepted", request._id )}>Accept</button>
+                            <div className="mr-3"> 
+                        <button className="border-2 border-white p-2 rounded-lg text-white font-bold m-2" onClick={()=>reviewRequest("rejected", request._id )}>Reject</button>
+                        <button className="bg-white p-2 rounded-lg text-black font-bold m-2" onClick={()=>reviewRequest("accepted", request._id )}>Accept</button>
+                        </div>
                         </div>
                     </div>
                 )

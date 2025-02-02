@@ -13,6 +13,7 @@ const connections = () => {
        
         try{
             const res= await axios.get(BASE_URL + '/user/connections', {withCredentials: true});
+            console.log(res);
      
             dispatch(addConnection(res.data.data));
         }
@@ -21,8 +22,8 @@ const connections = () => {
         }
     }
 
-    useEffect(()=>
-        fetchConnections
+    useEffect(()=>{
+        fetchConnections()}
     , [])
 
     if(!connections) return;
@@ -37,9 +38,9 @@ const connections = () => {
        {connections.map((connection)=>{
             const {_id, firstName, lastName, gender, about, photoUrl}=connection;
             return(
-                <div className="flex items-center w-1/2 bg-base-300 m-2 gap-3">
+                <div className="flex items-center w-1/2 bg-base-300 m-2 gap-7 py-2">
                     <div>
-                        <img src={photoUrl} alt="Photo" className="w-20 h-20 rounded-full m-4"/>
+                        <img src={photoUrl} alt="Photo" className="w-20 h-20 rounded-full ml-3"/>
                     </div>
                     <div>
                  <p className='font-bold text-lg'>{firstName+ " "+ lastName}</p>
