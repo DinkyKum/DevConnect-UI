@@ -1,5 +1,5 @@
 import React from 'react';
-import Navbar from './navbar';
+import Navbar from './Navbar';
 import {Outlet, useNavigate} from 'react-router';
 import Footer from './Footer'
 import { useDispatch } from 'react-redux';
